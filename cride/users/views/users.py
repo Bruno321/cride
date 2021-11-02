@@ -100,7 +100,8 @@ class UserViewSet(
         response = super(UserViewSet, self).retrieve(request,*args,*kwargs)
         circles = Circle.objects.filter(
             members=request.user,
-            memebership__is_active=True
+            membership__is_active=True,
+            is_active=True
         )
         data = {
             'user':response.data,

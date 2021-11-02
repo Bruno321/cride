@@ -37,10 +37,9 @@ class CircleViewSet(mixins.CreateModelMixin,
     filter_fields = ('verified', 'is_limited')
 
     def get_queryset(self):
-        """Restrict list to public-only."""
-        print('KAKOTA-------')
+        """Restrict list and retrieve to public and active only."""
         queryset = Circle.objects.all()
-        if self.action == 'list':
+        if self.action == 'list' or self.action=='retrieve':
             return queryset.filter(is_public=True,is_active=True)
         return queryset
 
