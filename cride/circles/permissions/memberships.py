@@ -1,7 +1,3 @@
-
-
-
-
 from cride.circles.models.memebership import Membership
 from rest_framework.permissions import BasePermission
 

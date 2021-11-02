@@ -48,7 +48,10 @@ class Circle(CRideModel):
         default=0,
         help_text='if circle is limited this will be the limit'
     )
-
+    is_active = models.BooleanField(
+        default=True,
+        help_text="Circles wont be deleted from db, they will just get inactive"
+    )
 
     def __str__(self):
         """return circle name"""

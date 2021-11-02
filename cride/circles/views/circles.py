@@ -41,7 +41,7 @@ class CircleViewSet(mixins.CreateModelMixin,
         print('KAKOTA-------')
         queryset = Circle.objects.all()
         if self.action == 'list':
-            return queryset.filter(is_public=True)
+            return queryset.filter(is_public=True,is_active=True)
         return queryset
 
     def get_permissions(self):
