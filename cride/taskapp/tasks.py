@@ -28,8 +28,8 @@ def gen_verification_token(user):
     return token.decode()
 
 @task(name='send_confirmation_email', max_retries=3)
-def send_confirmation_email(user__pk):
-    user = User.objects.get(pk=user__pk)
+def send_confirmation_email(user_pk):
+    user = User.objects.get(pk=user_pk)
     verification_token = gen_verification_token(user)
     subject = 'welcome @{}! verify your account'.format(user.username)
     from_email = 'Comparte ride <noreply@comparteride.com>'

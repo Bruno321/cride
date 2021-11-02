@@ -19,6 +19,9 @@ from cride.users.serializers.profiles import ProfileModelSerializer
 # tasks
 from cride.taskapp.tasks import send_confirmation_email
 
+# Utilities
+import jwt
+
 class UserModelSerializer(serializers.ModelSerializer):
 
     profile = ProfileModelSerializer(read_only=True)

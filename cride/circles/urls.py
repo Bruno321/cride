@@ -1,19 +1,19 @@
-"""Circles urls"""
+"""Circles URLs."""
 
-# django
-from django.urls import path, include
+# Django
+from django.urls import include, path
 
-# views
-from .views import circles as circle_views
-
+# Django REST Framework
 from rest_framework.routers import DefaultRouter
 
-from .views import memeberships as membership_views
+# Views
+from .views import circles as circle_views
+from .views import memberships as membership_views
 
 router = DefaultRouter()
-router.register(r'circles',circle_views.CircleViewSet,basename='circle')
+router.register(r'circles', circle_views.CircleViewSet, basename='circle')
 router.register(
-    r'circles/(?P<slug_name>[a-zA-Z0-9_-]+)/members',
+    r'circles/(?P<slug_name>[-a-zA-Z0-0_]+)/members',
     membership_views.MembershipViewSet,
     basename='membership'
 )
@@ -21,8 +21,3 @@ router.register(
 urlpatterns = [
     path('', include(router.urls))
 ]
-#urlpatterns = [
-#    path('circles/',list_circles),
-#    path('circles/create/',create_circle)
-#]
-
